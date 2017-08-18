@@ -70,7 +70,7 @@ func main() {
 
     params := make(map[string]string)
 
-    input := flag.String("inputfile", "test.thrift", "输入文件")
+    input := flag.String("input", "test.thrift", "输入文件")
     language := flag.String("lang", "go", "生成语言")
     output_path := flag.String("output", "./gen_output",  "输出目录")
 
