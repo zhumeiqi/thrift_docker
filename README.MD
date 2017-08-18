@@ -10,7 +10,7 @@
 >    * cd ${ROOT}/docker
 >    * docker-compose up
 ### 编译方式
->    * go run client.go --lang=py
->    * go run client.go --lang=go
+>    * go_thrift inputfile outputdir lang
+>    * go_thrift test.thrift outputdir py|go|cpp
 ## 缺陷
     目前只支持编译单文件，方便初步学习thrift，如果要支持多文件可以扩展
