@@ -1,0 +1,11 @@
+#!/bin/bash
+
+LANGUAGE=$1
+INPUT_PATH=$2
+echo "hello"
+
+rm -rf gen-${LANGUAGE}
+thrift --gen ${LANGUAGE} ${INPUT_PATH}
+rm -rf /tmp/gen_${LANGUAGE}.tar.gz
+tar -zcvf /tmp/gen_${LANGUAGE}.tar.gz gen-${LANGUAGE}
+rm -rf gen-${LANGUAGE}

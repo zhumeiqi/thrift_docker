@@ -1,0 +1,15 @@
+version: '2'
+services:
+    go_withthrift:
+        build: image/thrift
+        ports:
+            - "5016:5016"
+        volumes:
+            - ./dev/start_go_server:/etc/run/start_go_server
+            - ../src:/opt/tiger
+        environment:
+            ENV: 'dev'
+            PROJECT_ROOT: /opt/tiger
+
+
+
