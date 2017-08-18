@@ -11,7 +11,7 @@ import (
     "flag"
 )
 
-func upload_file(filename string, targetUrl string, params map[string]string) error{
+func upload_file(filename string, outputdir string, targetUrl string, params map[string]string) error{
 
     bodyBuf := new(bytes.Buffer)
     bodyWriter := multipart.NewWriter(bodyBuf)
@@ -54,7 +54,7 @@ func upload_file(filename string, targetUrl string, params map[string]string) er
     defer resp.Body.Close()
 
     if resp.Status == "200 OK" {
-        file, _ := os.Create("myoutput/"+filename+".tar.gz")
+        file, _ := os.Create(outputdir+"/"+filename+".tar.gz")
         defer file.Close()
 
         io.Copy(file, resp.Body)
@@ -85,7 +85,7 @@ func main() {
     filename := input
     fmt.Println(*filename, target_url, params)
 
-    err := upload_file(*filename, target_url, params)
+    err := upload_file(*filename, *output_path, target_url, params)
 
     if err != nil {
         log.Fatal(err)
