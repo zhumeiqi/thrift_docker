@@ -2,8 +2,9 @@
 
 input=$1
 output=$2
+lang=$3
 
 mkdir -p $2
 
-go run client.go $1 $2
+go run client.go -input=$input -output=$output -lang=$lang
 
